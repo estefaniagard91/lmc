@@ -1,0 +1,26 @@
+Para validad el mapping file
+validate_mapping_file.py -m mapfile.txt -b -j Sample -o ./
+
+Añadir etiquetas y juntar todas las secuencias en un .fna
+add_qiime_labels.py -i secuenciasnonquimeras/ -m mapfile.tx -c InputFastaName
+
+Escoger otus de novo
+pick_de_novo_otus.py -i combined_seqs.fna -o denovo/uclust_otus/
+
+Descontaminacion de dominios
+Para quitar los dominios que no nos interesan
+spplit_otu_table_by_taxonomy.py -i otu_table.biom -L 1 -o split_otu_tables/
+
+Separar los taxas por carpetas
+summarize_taxa.py -i otu_table.biom -o taxonomy_summaries/
+
+Observar las graficas por taxones
+plot_taxa_summary.py -i taxonomy_summaries/otu_table_L3.txt -l class -c pie,bar,area -o class_charts/
+
+Resumir o tener la informacion del archivo .biom
+biom summarize_table -i otu_table.biom -o sumary_otu_table.txt
+
+Convertir el archivo .biom a excel
+biom convert -i otu_table.biom -o otu_table_tabseparated.txt --table-type "OTU table" --to-tsv --header-key taxonomy --output-metadata-id "ConsensusLineage"
+
+
