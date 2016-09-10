@@ -1,6 +1,14 @@
 Para ensamblar las muestras con pear
 pear -f -r -p 0.01 -q 20 -t 200 -o
 
+Script del CIAD para limpiar las secuencias
+mg_cleaner
+* Los archivos deben estar todos en la misma carpeta
+
+Script del CIAD para correr las muestras con QIIME
+QIIME
+* Te pide el fasta con todas las secuencias y el mapping file.
+
 Para validad el mapping file
 validate_mapping_file.py -m mapfile.txt -b -j Sample -o ./
 
