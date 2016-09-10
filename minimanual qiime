@@ -4,6 +4,7 @@ pear -f -r -p 0.01 -q 20 -t 200 -o
 Script del CIAD para limpiar las secuencias
 mg_cleaner
 * Los archivos deben estar todos en la misma carpeta
+*Son los archivos assembled.fastq
 
 Script del CIAD para correr las muestras con QIIME
 QIIME
