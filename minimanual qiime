@@ -1,3 +1,6 @@
+Para ensamblar las muestras con pear
+pear -f -r -p 0.01 -q 20 -t 200 -o
+
 Para validad el mapping file
 validate_mapping_file.py -m mapfile.txt -b -j Sample -o ./
 
