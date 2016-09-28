@@ -1,4 +1,5 @@
 # lmc
 qiime 
 
-En esta pagina se colocaran los pasos que se lleva a cabo para analizar datos  de illumina con QIIME.
+En esta pagina se colocaran los pasos que se lleva a cabo para analizar datos  de illumina con QIIME. Es solo una guía.
+Esta informacion no es de nuestra propiedad,por ejemplo hay script o comandos que fueron proporcionador por el CIAD.
