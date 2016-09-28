@@ -1,0 +1,44 @@
+Para ensamblar las muestras con pear
+pear -f -r -p 0.01 -q 20 -t 200 -o
+
+
+Script del CIAD para limpiar las secuencias
+mg_cleaner
+* Los archivos deben estar todos en la misma carpeta
+*Son los archivos assembled.fastq
+Es necesario validar el mapping file
+Para validad el mapping file
+validate_mapping_file.py -m mapfile.txt -b -j Sample -o ./
+
+Script del CIAD para correr las muestras con QIIME
+QIIME
+* Te pide el fasta con todas las secuencias y el mapping file.
+
+Si se va a trabajar con archeas, bacterias y unassigned, en la carpeta taxa_summary, estaran los archivos biom por taxa y los archivos en .txt
+Estos archivos funcionan para realizar las graficas de abundancia relativa para cada taxon
+Asi mismo para saber cuantos phyla,clase,ordenes,familia,generos y especies hay.
+Para saber la diversidal alpha y la cantidad de OTUs que se encontraron, en el archivo alpha_div.txt viene esa informacion.
+
+Si solo se va a trabajar con bacterias, es necesario filtrar el archivo biom que se enceuntra en la carpeta de otus con el siguiente comando:
+Para quitar los dominios que no nos interesan
+split_otu_table_by_taxonomy.py -i otu_table.biom -L 1 -o split_otu_tables/
+Este comando te dara 3 archivos biom, separados por dominio. 
+Al archivo .biom de bacterias le aplicas el siguiente comando, para que te de los archivos .txt y .biom por taxon.
+Separar los taxas por carpetas
+summarize_taxa.py -i otu_table.biom -o taxonomy_summaries/
+Los archivos en .txt se abren en LibreOffice, estos muestran los valores de las abundancias relativas, solo colocarlas en %.
+Se ordenan de izq a derecha para que se coloquen las muestras en orden de menor a mayor, y seguido de esto se ordenan de arriba hacia abajo de mayor a menor.
+Se pueden graficar los datos con graficas de barras al 100%
+
+Para sacar la diversidad alpha (no phylogenetico)
+Al archivo de bacteria.biom  le aplicas el siguiente comando 
+alpha_diversity.py -i otu_table.biom -m  -o alpha_div.txt
+alpha_diversity.py -s Te muestra que tipos de metricas de diversidad te puede dar.
+
+Si quieres sacar diversidad alpha junto con diversidad filognetica, necesitas el archivo rep_set.tre
+lpha_diversity.py -i otu_table.biom -m PD_whole_tree -o adiv_pd.txt -t rep_set.tre
+
+
+
+
+
