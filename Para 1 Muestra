@@ -16,7 +16,14 @@ Se puede utilizar el script del CIAD para correr las muestras en QIIME
 QIIME
 * Te pide el fasta con todas las secuencias y el mapping file.
 
+Para sacar la grafica de pastel del Krona
+extract2krona otus.xls
+* Esto es con el archivo otus.xls del script de QIIME del CIAD
+
+
 o, se pueden correr de la siguiente manera:
+Para realizar este paso es necesario añadirle una etiqueta al archivo (Es necesario tener los archivos nonquimeras en una carpeta)
+add_qiime_labels.py -i secuenciasnonquimeras/ -m mapfile.txt -c InputFastaName
  
 Escoger otus de novo
 pick_de_novo_otus.py -i *.fasta -o denovo/uclust_otus/
@@ -37,6 +44,3 @@ biom summarize_table -i otu_table.biom -o sumary_otu_table.txt
 Convertir el archivo .biom a excel
 biom convert -i otu_table.biom -o otu_table_tabseparated.txt --table-type "OTU table" --to-tsv --header-key taxonomy --output-metadata-id "ConsensusLineage"
 
-Para sacar la grafica de pastel del Krona
-extract2krona otus.xls
-* Esto es con el archivo otus.xls del script de QIIME del CIAD
