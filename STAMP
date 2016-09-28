@@ -1,0 +1,19 @@
+Para analizar las muestras en el programa STAMP, es necesario un archivo profile y un archivo medatada
+Para realizar el archivo profile para STAMP
+
+El archivo profile lleva este estos encabezados:
+Domain	Phylum	Class	Order	Family	Genus	Species muestra1	Muestra2	Muestra3	etc.
+
+Del archivo .biom, ya sea el que contiene archeas,bacteria y unassinged, o el que solo tiene bacterias.
+1. Convertir el archivo .biom a .txt
+biom convert -i otu_table.biom -o otu_table_tabseparated.txt --table-type "OTU table" --to-tsv --header-key taxonomy --output-metadata-id "ConsensusLineage"
+
+De este archivo, se quitaran la columna de numero de otus, y se colocaran los datos de acuerdo al formato del archivo profile. 
+El archivo profile no puede tener celdas vacias, es necesario colocar Unclassified, asi mismo cambiar las celdas Unassigned por Classified.
+El archivo profile guardarlo pot .txt delimitado por tabuladores.
+
+Para el archivo metadata, de igual manera, es un archivo .txt delimitado por tabuladores.
+Los encabezados seria el numero de muestra, y las variables
+ej
+Sample  Localidad Sexos Edades
+1 RBM Hembra   Adulto
